@@ -17,4 +17,17 @@ class Form1(Form1Template):
     name = self.name_text_box.text
     email = self.email_text_box.text
     phone = self.phone_text_box.text
-
+    cover_letter = self.cover_letter_text_area.text
+    resume = self.resume_file_uploader.file
+    
+    # call to the server function will go here
+    
+    self.reset_form()
+    Notification("Your application has been submitted. Thanks for applying!",timeout=5, title="Hi, there!").show()
+    
+  def reset_form(self):
+    self.name_text_box.text = ""
+    self.email_text_box.text = ""
+    self.phone_text_box.text = ""
+    self.cover_letter_text_area.text = ""
+    self.resume_file_uploader.clear()
