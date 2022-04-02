@@ -4,9 +4,204 @@ container:
   properties: {html: '@theme:standard-page.html'}
 components:
 - type: ColumnPanel
-  properties: {}
+  properties: {col_widths: '{}'}
   name: content_panel
   layout_properties: {slot: default}
+  components:
+  - type: ColumnPanel
+    properties: {role: card, col_widths: '{}'}
+    name: card_1
+    layout_properties: {grid_position: 'FCPBGV,BQMKMN'}
+    components:
+    - type: Label
+      properties: {role: headline, align: left, tooltip: '', border: '', foreground: '',
+        visible: true, text: Tech INC, font_size: null, font: '', spacing_above: small,
+        icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+        underline: false, icon: ''}
+      name: title
+      layout_properties: {grid_position: 'FWHFLG,LTZBHA'}
+  - type: ColumnPanel
+    properties: {role: card, col_widths: '{"HSOZMF":12,"ZBJWWS":48,"NZMWUO":12,"DQARTU":48,"EICXVY":12,"PFOATW":48,"UZWKES":10,"SVLYRU":43}'}
+    name: card_2
+    layout_properties: {grid_position: 'OQSDSU,YGZHRG'}
+    components:
+    - type: Label
+      properties: {role: subheading, align: left, tooltip: '', border: '', foreground: '',
+        visible: true, text: Job details, font_size: null, font: '', spacing_above: small,
+        icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+        underline: false, icon: ''}
+      name: label_1
+      layout_properties: {grid_position: 'IOQHPZ,VKHLTZ'}
+    - type: Label
+      properties: {role: input-prompt, align: right, tooltip: '', border: '', foreground: '',
+        visible: true, text: 'Job title:', font_size: null, font: '', spacing_above: small,
+        icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+        underline: false, icon: ''}
+      name: label_2
+      layout_properties: {grid_position: 'GGPNJW,HSOZMF'}
+    - type: Label
+      properties: {role: input-prompt, align: left, tooltip: '', border: '', foreground: '',
+        visible: true, text: Chief of Cool, font_size: null, font: '', spacing_above: small,
+        icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+        underline: false, icon: ''}
+      name: label_3
+      layout_properties: {grid_position: 'GGPNJW,ZBJWWS'}
+    - type: Label
+      properties: {role: input-prompt, align: right, tooltip: '', border: '', foreground: '',
+        visible: true, text: 'Location:', font_size: null, font: '', spacing_above: small,
+        icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+        underline: false, icon: ''}
+      name: label_2_copy
+      layout_properties: {grid_position: 'GBPVKQ,NZMWUO'}
+    - type: Label
+      properties: {role: input-prompt, align: left, tooltip: '', border: '', foreground: '',
+        visible: true, text: London, font_size: null, font: '', spacing_above: small,
+        icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+        underline: false, icon: ''}
+      name: label_3_copy
+      layout_properties: {grid_position: 'GBPVKQ,DQARTU'}
+    - type: Label
+      properties: {role: input-prompt, align: right, tooltip: '', border: '', foreground: '',
+        visible: true, text: 'Renumeration:', font_size: null, font: '', spacing_above: small,
+        icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+        underline: false, icon: ''}
+      name: label_2_copy_2
+      layout_properties: {grid_position: 'KHBVUV,EICXVY'}
+    - type: Label
+      properties: {role: input-prompt, align: left, tooltip: '', border: '', foreground: '',
+        visible: true, text: A lot of money!, font_size: null, font: '', spacing_above: small,
+        icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+        underline: false, icon: ''}
+      name: label_3_copy_2
+      layout_properties: {grid_position: 'KHBVUV,PFOATW'}
+    - type: Label
+      properties: {role: input-prompt, align: right, tooltip: '', border: '', foreground: '',
+        visible: true, text: 'About the role:', font_size: null, font: '', spacing_above: small,
+        icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+        underline: false, icon: ''}
+      name: label_2_copy_3
+      layout_properties: {grid_position: 'FTIBZN,UZWKES'}
+    - type: Label
+      properties: {role: input-prompt, align: left, tooltip: '', border: '', foreground: '',
+        visible: true, text: 'At the coolest company ever we strive to be super duper
+          cool. That''s why we need a Chief of Cool!
+
+
+          Do you have great leadership and interpersonal skills? Are you a multi-tasking
+          self-starter that is passionate, proactive, organised and dynamic? Do you
+          like hard work in a fast-paced environment with a great company culture?
+
+
+          Well none of that matters! All we want is a cool person.
+
+
+          If you think you can be our next Chief of Cool, slide right into our DM''s
+          (by completing the form below).', font_size: null, font: '', spacing_above: small,
+        icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+        underline: false, icon: ''}
+      name: label_3_copy_3
+      layout_properties: {grid_position: 'FTIBZN,SVLYRU'}
+  - type: ColumnPanel
+    properties: {role: card, col_widths: '{"FARWOU":12,"UDEKEO":48,"YZNGGC":12,"SIIUGI":48,"UMZJJI":12,"WUFIBR":48,"JPTBZT":12,"EBAPBP":48,"DPYNAL":12,"HBLPIG":48}'}
+    name: card_3
+    layout_properties: {grid_position: 'DTQXVW,EMGUNR'}
+    components:
+    - type: Label
+      properties: {role: subheading, align: left, tooltip: '', border: '', foreground: '',
+        visible: true, text: Application form, font_size: null, font: '', spacing_above: small,
+        icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+        underline: false, icon: ''}
+      name: label_4
+      layout_properties: {grid_position: 'TKFHMD,CRXRNX'}
+    - type: Label
+      properties: {role: input-prompt, align: right, tooltip: '', border: '', foreground: '',
+        visible: true, text: 'Full name:', font_size: null, font: '', spacing_above: small,
+        icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+        underline: false, icon: ''}
+      name: label_5
+      layout_properties: {grid_position: 'PAUSQS,FARWOU'}
+    - type: TextBox
+      properties: {}
+      name: name_text_box
+      layout_properties: {grid_position: 'PAUSQS,UDEKEO'}
+    - type: Label
+      properties: {role: input-prompt, align: right, tooltip: '', border: '', foreground: '',
+        visible: true, text: 'Email:', font_size: null, font: '', spacing_above: small,
+        icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+        underline: false, icon: ''}
+      name: label_5_copy
+      layout_properties: {grid_position: 'QSSILQ,YZNGGC'}
+    - type: TextBox
+      properties: {}
+      name: email_text_box
+      layout_properties: {grid_position: 'QSSILQ,SIIUGI'}
+    - type: Label
+      properties: {role: input-prompt, align: right, tooltip: '', border: '', foreground: '',
+        visible: true, text: 'Phone:', font_size: null, font: '', spacing_above: small,
+        icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+        underline: false, icon: ''}
+      name: label_5_copy_2
+      layout_properties: {grid_position: 'CGKHIM,UMZJJI'}
+    - type: TextBox
+      properties: {}
+      name: phone_text_box
+      layout_properties: {grid_position: 'CGKHIM,WUFIBR'}
+    - type: Label
+      properties: {role: input-prompt, align: right, tooltip: '', border: '', foreground: '',
+        visible: true, text: 'Cover letter:', font_size: null, font: '', spacing_above: small,
+        icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+        underline: false, icon: ''}
+      name: label_5_copy_3
+      layout_properties: {grid_position: 'OLDUAD,JPTBZT'}
+    - type: TextArea
+      properties: {role: null, align: left, height: '', tooltip: '', placeholder: Write your optional cover letter here.,
+        border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
+        auto_expand: false, font: '', spacing_above: small, spacing_below: small,
+        italic: false, background: '', bold: false, underline: false}
+      name: cover_letter_text_area
+      layout_properties: {grid_position: 'OLDUAD,EBAPBP'}
+    - type: Label
+      properties: {role: input-prompt, align: right, tooltip: '', border: '', foreground: '',
+        visible: true, text: 'Resume:', font_size: null, font: '', spacing_above: small,
+        icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+        underline: false, icon: ''}
+      name: label_5_copy_4
+      layout_properties: {grid_position: 'LCSGBO,DPYNAL'}
+    - type: FileLoader
+      properties:
+        role: raised
+        show_state: true
+        align: left
+        tooltip: ''
+        border: ''
+        file_types: null
+        enabled: true
+        files: []
+        foreground: ''
+        visible: true
+        text: Select file
+        font_size: null
+        font: ''
+        spacing_above: small
+        icon_align: left
+        spacing_below: small
+        italic: false
+        file: null
+        background: ''
+        bold: false
+        underline: false
+        multiple: false
+        icon: fa:upload
+      name: resume_file_uploader
+      layout_properties: {grid_position: 'LCSGBO,HBLPIG'}
+    - type: Button
+      properties: {role: primary-color, align: center, tooltip: '', border: '', enabled: true,
+        foreground: '', visible: true, text: Submit, font_size: null, font: '', spacing_above: small,
+        icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+        underline: false, icon: ''}
+      name: submit_button
+      layout_properties: {grid_position: 'ECXMRL,OQLJLJ'}
+      event_bindings: {click: submit_button_click}
 - type: FlowPanel
   properties: {}
   name: navbar_links
