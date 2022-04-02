@@ -15,4 +15,6 @@ class Form1(Form1Template):
   def submit_button_click(self, **event_args):
     """This method is called when the button is clicked"""
     name = self.name_text_box.text
+    email = self.email_text_box.text
+    phone = self.phone_text_box.text
 
