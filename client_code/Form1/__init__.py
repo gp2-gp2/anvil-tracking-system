@@ -1,5 +1,6 @@
 from ._anvil_designer import Form1Template
 from anvil import *
+import anvil.server
 import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
@@ -20,7 +21,8 @@ class Form1(Form1Template):
     cover_letter = self.cover_letter_text_area.text
     resume = self.resume_file_uploader.file
     
-    # call to the server function will go here
+    # call to the server function to create card in Trello by calling API
+    anvil.server.call('create_card', name, email, phone, cover_letter, resume)
     
     self.reset_form()
     Notification("Your application has been submitted. Thanks for applying!",timeout=5, title="Hi, there!").show()

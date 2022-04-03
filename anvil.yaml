@@ -1,9 +1,19 @@
 allow_embedding: false
 package_name: Material_Design_1
+secrets:
+  trello_api_key:
+    value: {? '' : 1h/9KDy4CLI1Q30528oC7zX5AxJo979Onhg8sMoYdQ6cR9C/vaxvDx97EnzMN8Vs9wQeDvdhtDjxFCrhv7nhWfxlDhXR5+n/reGPsM5KQ9w9HtZU33ZxOoaAl+qojUrNu/rArBzBKY/dawdHJ3inN6Tp7Ftd+faNgstzvrXjGQ==}
+    type: secret
+  trello_api_token:
+    value: {? '' : IlsJyceUxKenu9/KSItKM+neEe0pGO4uoxzZFtFaQktbFUQy8gDS5DqXijUrjQNMpVrG/IAUEYknWSOKAZ1ZcFIjVLmvQq1dH0NYnrZjvIeA5GfJzw3/4dvK+fuevIsUiRTAbJhRQly0DWYSnZdOX7H3NDluXrHHY6L60V1x8YEkR7fZCQ0CYn8b3git6ETNFPufr3mVSQQRBhgKQm8p}
+    type: secret
 name: Tracking System
 startup_form: Form1
 runtime_options: {version: 2, client_version: '3', server_version: python3-full}
 services:
 - source: /runtime/services/tables.yml
+  client_config: {}
+  server_config: {}
+- source: /runtime/services/anvil/secrets.yml
   client_config: {}
   server_config: {}
