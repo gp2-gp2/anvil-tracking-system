@@ -1,3 +1,4 @@
+import anvil.email
 import anvil.secrets
 import anvil.tables as tables
 import anvil.tables.query as q
@@ -23,6 +24,7 @@ KEY = anvil.secrets.get_secret('trello_api_key')
 TOKEN = anvil.secrets.get_secret('trello_api_token')
 
 NEW_APPLICATIONS_LIST_ID = "624895a3d8c5a2596c8f6e5c"
+REJECTED_LIST_ID = "624895bb28c79a7f7f912e45"
 
 @anvil.server.callable
 def create_card(name, email, phone, cover_letter, resume):
@@ -63,3 +65,46 @@ def create_card_attachment(card_id, attachment):
     files=files,
     params=query
   )
+
+@anvil.server.http_endpoint('/ats/reject_card/list',methods=["POST","HEAD"])
+def reject_applicant():
+  # Trello sends two requests, first HEAD and then POST. Checking for head request stops 505 on first request.
+  if anvil.server.request.method == "HEAD":
+    return {}
+  
+  # get the old list ID or return a falsy object if an old list ID isn't found.
+  previous_list_id = anvil.server.request.body_json.get('action', {}).get('data', {}).get('old', {}).get('idList')
+  # check if card is being moved onto rejected list
+  if previous_list_id and previous_list_id != REJECTED_LIST_ID:
+    card_id = anvil.server.request.body_json['action']['data']['card']['id']
+    email_from_card = get_email_address_from_card(card_id)
+    anvil.email.send(from_name="Coolest Company Ever",
+                     to="gp3510@gmail.com",
+                     subject="Application for Chief of Cool at the Coolest Company Ever",
+                     text=f"Sorry to say you aren't cool enough! \nDebug: {email_from_card}")
+  
+def get_email_address_from_card(card_id):
+  url = f"https://api.trello.com/1/cards/{card_id}"
+  
+  headers = {
+    "Accept": "application/json"
+  }
+  
+  query = {
+    'key': KEY,
+    'token': TOKEN
+  }
+  
+  response = requests.request(
+    "GET",
+    url,
+    headers=headers,
+    params=query
+  )
+  
+  print(type(response))
+  print(response.json())
+  
+  return response.json()
+  # get email from cards description
+  # todo 
