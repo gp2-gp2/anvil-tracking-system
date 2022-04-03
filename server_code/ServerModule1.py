@@ -70,6 +70,7 @@ def create_card_attachment(card_id, attachment):
 def reject_applicant():
   # Trello sends two requests, first HEAD and then POST. Checking for head request stops 505 on first request.
   if anvil.server.request.method == "HEAD":
+    print("HEAD request from Trello API")
     return {}
   
   # get the old list ID or return a falsy object if an old list ID isn't found.
@@ -79,9 +80,9 @@ def reject_applicant():
     card_id = anvil.server.request.body_json['action']['data']['card']['id']
     email_from_card = get_email_address_from_card(card_id)
     anvil.email.send(from_name="Coolest Company Ever",
-                     to="gp3510@gmail.com",
+                     to=email_from_card,
                      subject="Application for Chief of Cool at the Coolest Company Ever",
-                     text=f"Sorry to say you aren't cool enough! \nDebug: {email_from_card}")
+                     text="Sorry to say you aren't cool enough!")
   
 def get_email_address_from_card(card_id):
   url = f"https://api.trello.com/1/cards/{card_id}"
@@ -102,9 +103,8 @@ def get_email_address_from_card(card_id):
     params=query
   )
   
-  print(type(response))
-  print(response.json())
-  
-  return response.json()
-  # get email from cards description
-  # todo 
+  print(f"Get card details from Trello API status: {response}")
+  # email extract instead custom field from trello
+  response_list = response.json()["desc"][8:].split()
+  email = response_list[0]
+  return email
