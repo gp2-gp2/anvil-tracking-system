@@ -33,3 +33,6 @@ class Form1(Form1Template):
     self.phone_text_box.text = ""
     self.cover_letter_text_area.text = ""
     self.resume_file_uploader.clear()
+
+  def validate_form(self):
+    pass
