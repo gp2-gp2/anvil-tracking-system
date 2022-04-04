@@ -202,6 +202,13 @@ components:
       name: submit_button
       layout_properties: {grid_position: 'ECXMRL,OQLJLJ'}
       event_bindings: {click: submit_button_click}
+  - type: Label
+    properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
+      visible: true, text: app version, font_size: 12, font: '', spacing_above: small,
+      icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+      underline: false, icon: ''}
+    name: label_version
+    layout_properties: {grid_position: 'UMNGNP,MIZCYL'}
 - type: FlowPanel
   properties: {}
   name: navbar_links
