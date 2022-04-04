@@ -21,11 +21,13 @@ class Form1(Form1Template):
     cover_letter = self.cover_letter_text_area.text
     resume = self.resume_file_uploader.file
     
-    # call to the server function to create card in Trello by calling API
-    anvil.server.call('create_card', name, email, phone, cover_letter, resume)
-    
-    self.reset_form()
-    Notification("Your application has been submitted. Thanks for applying!",timeout=5, title="Hi, there!").show()
+    if self.validate_form(name, email, phone, cover_letter, resume):
+      # call to the server function to create card in Trello by calling API
+      anvil.server.call('create_card', name, email, phone, cover_letter, resume)
+      self.reset_form()
+      Notification("Your application has been submitted. Thanks for applying!",timeout=5, title="Hi, there!").show()
+    else:
+      alert("Please fulfill all form fields and attach file with resume.")   
     
   def reset_form(self):
     self.name_text_box.text = ""
@@ -34,5 +36,8 @@ class Form1(Form1Template):
     self.cover_letter_text_area.text = ""
     self.resume_file_uploader.clear()
 
-  def validate_form(self):
-    pass
+  def validate_form(self, name, email, phone, cover_letter, resume):
+    # validate all fields length
+    if not name:
+      return false
+    return true
