@@ -27,7 +27,7 @@ class Form1(Form1Template):
       self.reset_form()
       Notification("Your application has been submitted. Thanks for applying!",timeout=5, title="Hi, there!").show()
     else:
-      alert("Please fulfill all form fields and attach file with resume.")   
+      alert("Please fulfill all form fields and attach file with resume before trying to submit.")   
     
   def reset_form(self):
     self.name_text_box.text = ""
@@ -38,6 +38,6 @@ class Form1(Form1Template):
 
   def validate_form(self, name, email, phone, cover_letter, resume):
     # validate all fields length
-    if not name:
-      return false
-    return true
+    if not name or not email or not phone or not cover_letter or not resume:
+      return False
+    return True
