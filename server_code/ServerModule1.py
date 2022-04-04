@@ -27,7 +27,7 @@ NEW_APPLICATIONS_LIST_ID = "624895a3d8c5a2596c8f6e5c"
 REJECTED_LIST_ID = "624895bb28c79a7f7f912e45"
 
 @anvil.server.callable
-def create_card(name, email, phone, cover_letter, resume):
+def create_card(name, email, phone, education, cover_letter, resume):
   url = "https://api.trello.com/1/cards"
   query = {
     # api credentials
@@ -40,7 +40,7 @@ def create_card(name, email, phone, cover_letter, resume):
     # position the new card at the bottom of the list
     'pos': 'bottom',
     # add the description to the card containing the email, phone, and cover letter
-    'desc': f''' Email: {email} Phone: {phone} Cover letter: {cover_letter}'''
+    'desc': f''' Email: {email} Phone: {phone} Education level: {education} Cover letter: {cover_letter}'''
   }
   response = requests.request(
     'POST', 
