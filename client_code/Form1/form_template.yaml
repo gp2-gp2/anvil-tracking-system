@@ -102,7 +102,7 @@ components:
       name: label_3_copy_3
       layout_properties: {grid_position: 'FTIBZN,SVLYRU'}
   - type: ColumnPanel
-    properties: {role: card, col_widths: '{"FARWOU":12,"UDEKEO":48,"YZNGGC":12,"SIIUGI":48,"UMZJJI":12,"WUFIBR":48,"JPTBZT":12,"EBAPBP":48,"DPYNAL":12,"HBLPIG":48}'}
+    properties: {role: card, col_widths: '{"FARWOU":12,"UDEKEO":48,"YZNGGC":12,"SIIUGI":48,"UMZJJI":12,"WUFIBR":48,"JPTBZT":12,"EBAPBP":48,"DPYNAL":12,"HBLPIG":48,"GXZRNJ":12,"XNQACS":48}'}
     name: card_3
     layout_properties: {grid_position: 'DTQXVW,EMGUNR'}
     components:
@@ -146,6 +146,35 @@ components:
       properties: {}
       name: phone_text_box
       layout_properties: {grid_position: 'CGKHIM,WUFIBR'}
+    - type: Label
+      properties: {role: input-prompt, align: right, tooltip: '', border: '', foreground: '',
+        visible: true, text: 'Education level:', font_size: null, font: '', spacing_above: small,
+        icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+        underline: false, icon: ''}
+      name: label_5_copy_5
+      layout_properties: {grid_position: 'NDPUEF,GXZRNJ'}
+    - type: DropDown
+      properties:
+        role: null
+        align: left
+        tooltip: ''
+        placeholder: ''
+        border: ''
+        enabled: true
+        foreground: ''
+        items: [High School, Degree, Masters, PhD]
+        visible: true
+        font_size: null
+        font: ''
+        spacing_above: small
+        spacing_below: small
+        italic: false
+        background: ''
+        bold: false
+        underline: false
+        include_placeholder: true
+      name: education_drop_down
+      layout_properties: {grid_position: 'NDPUEF,XNQACS'}
     - type: Label
       properties: {role: input-prompt, align: right, tooltip: '', border: '', foreground: '',
         visible: true, text: 'Cover letter:', font_size: null, font: '', spacing_above: small,
@@ -204,7 +233,7 @@ components:
       event_bindings: {click: submit_button_click}
   - type: Label
     properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
-      visible: true, text: app version, font_size: 12, font: '', spacing_above: small,
+      visible: true, text: app version, font_size: 10, font: '', spacing_above: small,
       icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
       underline: false, icon: ''}
     name: label_version
