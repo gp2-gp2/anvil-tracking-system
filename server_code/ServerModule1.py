@@ -42,7 +42,7 @@ def create_card(name, email, phone, education, cover_letter, resume):
     # position the new card at the bottom of the list
     'pos': 'bottom',
     # add the description to the card containing the email, phone, and cover letter
-    'desc': f''' Email: {email} Phone: {phone} Education level: {education} Cover letter: {cover_letter}'''
+    'desc': f''' Email: {email} \nPhone: {phone} \nEducation level: {education} \nCover letter: {cover_letter}'''
   }
   response = requests.request(
     'POST', 
