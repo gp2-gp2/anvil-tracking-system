@@ -27,6 +27,7 @@ TOKEN = anvil.secrets.get_secret('trello_api_token')
 
 NEW_APPLICATIONS_LIST_ID = "624895a3d8c5a2596c8f6e5c"
 REJECTED_LIST_ID = "624895bb28c79a7f7f912e45"
+TALENTED_LIST_ID = "624c89dc76356a7007071aef"
 
 @anvil.server.callable
 def create_card(name, email, phone, education, cover_letter, resume):
@@ -85,7 +86,21 @@ def reject_applicant():
                      to=email_from_card,
                      subject="Application for Chief of Cool at the Coolest Company Ever",
                      text="Sorry to say you aren't cool enough!")
+
+@anvil.server.http_endpoint('/ats/talented_applicant_card/list', methods=["POST", "HEAD"])
+def talented_applicant():
+  if anvil.server.request.method == "HEAD":
+    return {}
   
+  previous_list_id = anvil.server.request.body_json.get('action', {}).get('data', {}).get('old', {}).get('idList')
+  if previous_list_id and previous_list_id != TALENTED_LIST_ID:
+    card_id = anvil.server.request.body_json['action']['data']['card']['id']
+    email_from_card = get_email_address_from_card(card_id)
+    anvil.email.send(from_name="Coolest Company Ever",
+                     to=email_from_card,
+                     subject="Application for Chief of Cool at the Coolest Company Ever",
+                     text="Hi There!\n\nYour information has been saved for future positions!\nWe wish you all the best!")
+    
 def get_email_address_from_card(card_id):
   url = f"https://api.trello.com/1/cards/{card_id}"
   
