@@ -6,6 +6,8 @@ from anvil.tables import app_tables
 import anvil.server
 import requests
 import json
+from datetime import datetime
+import anvil.tz
 
 # This is a server module. It runs on the Anvil server,
 # rather than in the user's browser.
@@ -108,3 +110,7 @@ def get_email_address_from_card(card_id):
   response_list = response.json()["desc"][8:].split()
   email = response_list[0]
   return email
+
+@anvil.server.callable
+def insert_applications_to_db(name, email):
+  app_tables.applications.add_row(CreatedAt=datetime.now(),Email=email, Name=name)
