@@ -26,6 +26,7 @@ class Form1(Form1Template):
     if self.validate_form(name, email, phone, education, cover_letter, resume):
       # call to the server function to create card in Trello by calling API
       anvil.server.call('create_card', name, email, phone, education, cover_letter, resume)
+      anvil.server.call('insert_applications_to_db', name, email)
       self.reset_form()
       Notification("Your application has been submitted. Thanks for applying!",timeout=5, title="Hi, there!").show()
     else:

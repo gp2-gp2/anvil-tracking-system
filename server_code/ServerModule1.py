@@ -6,6 +6,8 @@ from anvil.tables import app_tables
 import anvil.server
 import requests
 import json
+from datetime import datetime
+import anvil.tz
 
 # This is a server module. It runs on the Anvil server,
 # rather than in the user's browser.
@@ -40,7 +42,7 @@ def create_card(name, email, phone, education, cover_letter, resume):
     # position the new card at the bottom of the list
     'pos': 'bottom',
     # add the description to the card containing the email, phone, and cover letter
-    'desc': f''' Email: {email} Phone: {phone} Education level: {education} Cover letter: {cover_letter}'''
+    'desc': f''' Email: {email} \nPhone: {phone} \nEducation level: {education} \nCover letter: {cover_letter}'''
   }
   response = requests.request(
     'POST', 
@@ -108,3 +110,7 @@ def get_email_address_from_card(card_id):
   response_list = response.json()["desc"][8:].split()
   email = response_list[0]
   return email
+
+@anvil.server.callable
+def insert_applications_to_db(name, email):
+  app_tables.applications.add_row(CreatedAt=datetime.now(),Email=email, Name=name)
